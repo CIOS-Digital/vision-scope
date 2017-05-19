@@ -1,0 +1,138 @@
+\documentclass[12pt, letterpaper]{article}
+\input{preamble.tex}
+
+\title{Vision and Scope \\
+Flight Planning
+}
+\author{ Cedrick Cooke
+    \and Ian Littke
+    \and Owen Roth-Lerner
+    \and Sander Scherman Garzon
+    \and Justine O'Neil
+}
+\date{Version 0.2 \\ 2017-02-01}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section*{Summary of Changes}
+\begin{tabularx}{\textwidth}{|l|r|X|l|}
+\hline
+Editor & Revision & Description & Date \\ \hline \hline
+Various & 0.2 & Initial document body and writing & 2017-02-01 \\ \hline
+Cedrick Cooke & 0.1 & Initial document blocking & 2017-01-30 \\ \hline
+\end{tabularx}
+
+\section{Requirements}
+\subsection{Background}
+One of the missions which the Civil Air Patrol may have to complete in the event of a serious earthquake is to survey bridge infrastructure to verify its structural integrity.  Pilots are sent on missions to fly over and photograph bridges across the state of Washington.  Currently, CAP pilots are given notebooks containing flight plans with a series of geographic coordinates.  While flying, the pilots manually key the coordinates of their next location into the cockpit navigation system.  The Flight Plan Editor software will allow CAP to generate flight plan datafiles that are compatible with the navigation system so that pilots can select them from the cockpit navigation menu, thereby relieving them of the responsibility of manualy entering location coordinates.
+
+\subsection{Business Opportunity}
+The planes in the Civil Air Patrol fleet are equipped with Garmin G1000 cockpit navigation dashboards.  This device accepts two Secure Digital flash memory cards on which flight plans are stored.  Our software will make it simple to generate and edit these flight plan data files.  This will allow CAP to create and maintain disaster response flight plans.  Existing software with the same capabilities is SkyVector.  It is slow and online-only.  Our software will run as a desktop application and be more responsive.
+
+\subsection{Business Objectives and Success Criteria}
+Reduce the time spent by the pilot on navigation tasks.
+
+Generate flight plan without internet connection.
+
+Software has intuitive, non-cognitatively demanding interface.
+
+Deploy flight plan data to SD card.
+
+\subsection{Customer or Market Needs}
+Currently, other free flight planning software, (Ex. SkyVector), is web based and therefore is required to be connected to the internet. Our software must be able to be accessable on a desktop, reguardless of internet connection. It must also fit onto a SD card, and be able to be intuitively navicable on a G1000 airplane navigation system. It's longitude and latitude navigation must be accurate for the user-requested locations. 
+\subsection{Business Risks}
+The primary risk of the software is the threat of innacturate latitude and logitude for a given bridge ifrrastructure, whether it be completely in the wrong area, or switching bridges' locations. The potential for this is probable, as we will be entering numerous locations. However it can be countered by thorough review by peers and other maps to double check locations.
+
+Another risk is convoluted accesibility, causing the use of the program to be impractical or less effeciant than the current method of notebook-to-GPS copying or other software. This is very likely, as this program is not expected to be updated to adress user inconveniances or compete with other future navigation software. This can be mitigated by through user testing and review. 
+
+Finally, our last clear risk is lack of functionality, or complete inability for the program to function on the GPS in flight or be transferred from the desktop to the GPS. This is unlikely, as we will be regularly checking to see that our XML output is identical to the current GPS XML used, and run it before final shipping. 
+
+\section{Vision of Solution}
+  \subsection{Vision Statement}
+    For flight operators who require an easy tool in generating flight plans for
+    the Garmin G1000 integrated flight instrument system, the Flight Plan Editor
+    is a tool that will allow flight operators to input locations with
+    lattitude/longitude coordinates to generate a flight path.
+    This program will allow flight operators to create flight plans in a
+    comfortable manner opposed to using either the built-in editor in the G1000
+    or hand-creating plans using a text editor.
+
+  \subsection{Major Features}
+    \begin{description}
+      \setlength{\itemsep}{1pt}
+      \setlength{\parskip}{0pt}
+      \setlength{\parsep}{0pt}
+      \item[FE-01] Display sectional map
+      \item[FE-02] Input destination coordinates using lattitude/longitude
+      \item[FE-03] Distinguish waypoint coordinates from destinations
+      \item[FE-04] Draw flight path on sectional map between coordinates
+      \item[FE-05] Save plan in XML to SD Card readable by Garmin G1000
+    \end{description}
+  \subsection{Assumptions and Dependencies}
+     \begin{description}
+      \setlength{\itemsep}{1pt}
+      \setlength{\parskip}{0pt}
+      \setlength{\parsep}{0pt}
+      \item[AS-01] Flight operators can map around restricted areas/altitude
+      \item[AS-02] Sectional map(s) are located in the proper location\\
+      \item[DE-01] Windows operating system
+      \item[DE-02] SD Card supplied is of a certain make/model
+      \item[DE-03] Flight plan is used in Garmin G1000
+    \end{description}
+\section{Scope, Limitations}
+\subsection{Scope of Initial Release}
+The initial release will have the bare minimum functionality:
+    flight plans for the G1000 will be able to be opened or created,
+    and waypoints of the flight may be input or updated by latitude and longitude only.
+A prototype interface will exist, but does not have to be representitive of the final interface.
+
+\subsection{Scope of Subsequent Releases}
+Subsequent releases will come in three stages to add a graphical interface, locations, and printing of flight plans/maps.
+The first subsequent release \emph{must} contain a prototype of the graphical user interface.
+The second subsequent release will add printing.
+The last release will add pre-defined waypoints for things such as airports.
+
+\subsection{Limitations and Exclusions}
+The software must work on Microsoft Windows, and is not required to work on Linux or Mac computers.
+The software will assume that the user is correct,
+    and the software shall make no attempts to fix errors in the user's input.
+
+\section{Business Context}
+\subsection{Stakeholder Profiles}
+
+\begin{tabular}{ |l|l| }
+\hline
+Stakeholder & Description \\ \hline \hline
+Students & Primary users \\ \hline
+Aran Clauson & Primary mentor \\ \hline
+Martin Kjelstad & Primary contact who defines requested project requirements \\ \hline
+Civilian Air Patrol (CAP) & Software recipients \\ \hline
+\hline
+\end{tabular}
+
+\subsection{Project Priorities}
+
+\begin{tabular} { |l|l|l|l| }
+\hline
+Dimension & Driver \newline (state objecive) & Constraint \newline(state limits) & Degree of Freedom \newline(state allowable range) \\
+\hline
+\hline
+Schedule & & & \\ \hline
+Features & & & \\ \hline
+Quality & & & \\
+\hline
+\end{tabular}
+
+\subsection{Operating Environment}
+
+\begin{itemize}
+	\item CAP Garmin G-1000 equipped aircraft
+	\item Windows desktop
+\end{itemize}
+
+\bibliography{citations}{}
+\bibliographystyle{plain}
+\end{document}
